@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 # OpenAI key pulled from environment for safety; defaults to empty string.
-OPENAI_API_KEY = 'YOUR_API_KEY_HERE'
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', '')  # ✅ Secure
 
 # Default text file for summarization fallback (e.g., The Princess Bride).
 DEFAULT_SUMMARY_FILE = os.getenv(
