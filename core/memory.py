@@ -118,6 +118,4 @@ def build_context_hint(state: Optional[Dict[str, Any]] = None, window: int = _MA
         lines.append(f"- last_answer: {last_answer}")
     return "\n".join(lines)
 
-last_intent = ''
-last_content = ''
-last_filename = ''
+
