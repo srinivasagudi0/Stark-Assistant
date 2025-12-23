@@ -1,0 +1,49 @@
+┌────────────────────┐
+│   User Input Text  │
+└─────────┬──────────┘
+          │
+          ▼
+┌────────────────────────────┐
+│   Intent Classification    │
+│  (Action vs Answer?)       │
+│                            │
+│  • Side-effect requested?  │
+│    → ACTION                │
+│  • Info / chat requested?  │
+│    → ANSWER                │
+│  • Ambiguous?              │
+│    → ANSWER (default)      │
+└─────────┬──────────┬───────┘
+          │          │
+          │          │
+     ACTION path   ANSWER path
+          │          │
+          ▼          ▼
+┌──────────────────┐  ┌──────────────────┐
+│  ACTION Response │  │  ANSWER Response │
+│     Class        │  │      Class       │
+│                  │  │                  │
+│ type = "ACTION"  │  │ type = "ANSWER"  │
+│ intent           │  │ text             │
+│ filename (null)  │  │                  │
+│ content (null)   │  │                  │
+└─────────┬────────┘  └─────────┬────────┘
+          │                     │
+          ▼                     ▼
+┌────────────────────────────────────────┐
+│      Return EXACTLY ONE RESPONSE       │
+│      (No extra text, no metadata)      │
+└────────────────────────────────────────┘
+
+
+
+
+
+
+User Text
+   ↓
+Classify Intent
+   ↓
+Build ONE response object
+   ↓
+Return it
